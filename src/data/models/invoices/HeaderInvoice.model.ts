@@ -10,11 +10,9 @@ interface HeaderInvoiceI {
     inv_client_email: string;
     inv_client_phone: string;
     inv_quantity_items: number;
+    
     inv_createdAt: Date;
-    inv_updatedAt: Date;
-
-    inv_createdBy: string;
-    inv_updatedBy: string;
+    inv_updatedAt: Date;    
 }
 
 
@@ -24,7 +22,7 @@ interface HeaderInvoiceI {
     createdAt: 'inv_createdAt',
     updatedAt: 'inv_updatedAt'
 })
-class HeaderInvoice extends Model<HeaderInvoiceI> {
+class HeaderInvoice extends Model {
     @Column({
         type: DataType.UUID,
         defaultValue: DataType.UUIDV4,
