@@ -1,7 +1,6 @@
-import { Router } from "express";
-import { validateGuitarId } from "./middlewares/validate.middleware";
-import { GuitarController } from "./controllers/Guitar.controller";
-import { GuitarPostgresDataSource, GuitarRepositoryImpl } from "../infrastructure";
+import { Router } from 'express';
+import { validateGuitarId, GuitarController } from '@/app/guitars/presentation';
+import { GuitarPostgresDataSource, GuitarRepositoryImpl } from '@/app/guitars/infrastructure';
 
 export class GuitarRoutes {
 

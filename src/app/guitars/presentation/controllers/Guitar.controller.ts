@@ -1,5 +1,5 @@
-import { CustomError } from "../../../../errors/errors";
-import {  GuitarRepository } from "../../domain";
+import { CustomError } from '@/errors';
+import { GuitarRepository } from '@/app/guitars/domain';
 import { Response, Request } from "express";
 
 export class GuitarController {
