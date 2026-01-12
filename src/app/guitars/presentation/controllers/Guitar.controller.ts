@@ -14,7 +14,7 @@ export class GuitarController {
 
     public createGuitar = async (req: Request, res: Response) => {
         try {
-            const guitar = await this.guitarRepository.createGuitar(req.body);
+            await this.guitarRepository.createGuitar(req.body);
             return res.status(201).json({ message: "Guitar created successfully" });
         } catch (error) {
             this.handleError(error, res);
@@ -43,7 +43,7 @@ export class GuitarController {
     public updateGuitar = async (req: Request, res: Response) => {
         try {
             const id = req.params.id;
-            const guitar = await this.guitarRepository.updateGuitar(id, req.body);
+            await this.guitarRepository.updateGuitar(id, req.body);
             return res.status(200).json({ message: "Guitar updated successfully" });
         } catch (error) {
             this.handleError(error, res);

@@ -62,9 +62,7 @@ class Guitar extends Model{
 
     //* |------| | HasMany | |------|
     @HasMany(() => DetailInvoice)
-    declare detail_invoices: DetailInvoice[];
-
-    
+    declare detail_invoices: DetailInvoice[];    
 
 }
 
