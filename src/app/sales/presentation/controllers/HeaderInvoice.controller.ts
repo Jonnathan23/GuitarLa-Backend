@@ -1,7 +1,7 @@
-import { Response, Request } from "express";
+import { Response, Request } from 'express';
 
-import { CustomError } from "../../../../errors/errors";
-import { HeaderInvoiceRepository } from "../../domain";
+import { CustomError } from '@/errors';
+import { HeaderInvoiceRepository } from '@/app/sales/domain';
 
 export class HeaderInvoiceController {
     constructor(
