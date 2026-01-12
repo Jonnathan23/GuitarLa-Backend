@@ -1,8 +1,8 @@
 
-import { AppRouter } from "./app/routes";
-import { Server } from "./app/server";
-import { CorsConfig, envs } from "./config";
-import { DatabaseConnection } from "./data/db";
+import { AppRouter } from '@/app/routes';
+import { Server } from '@/app/server';
+import { CorsConfig, envs } from '@/config';
+import { DatabaseConnection } from '@/data/db';
 
 
 (() => {
@@ -29,7 +29,7 @@ async function main() {
         port: envs.PORT,
         routes,
         cors
-    })    
+    })
 
     await server.start();
 

@@ -1,8 +1,8 @@
-import express, { Router } from "express";
-import cors from "cors";
+import express, { Router } from 'express';
+import cors from 'cors';
 
-import { ColorsAdapter } from "../utils/colors";
-import { CorsConfig } from "../config";
+import { ColorsAdapter } from '@/utils/colors';
+import { CorsConfig } from '@/config';
 
 interface ServerProps {
     port: number;

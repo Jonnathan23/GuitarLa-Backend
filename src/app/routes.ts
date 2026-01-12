@@ -1,5 +1,5 @@
-import { Router } from "express";
-import { GuitarRoutes } from "./guitars/presentation/routes";
+import { Router } from 'express';
+import { GuitarRoutes } from '@/app/guitars/presentation';
 
 export class AppRouter {
     static get routes(): Router {
