@@ -3,14 +3,17 @@
   "module": "index.ts",
   "private": true,
   "scripts": {
-    "dev": "nodemon --exec ts-node src/app.ts",
-    "dev:api": "nodemon --exec ts-node src/app.ts --api"
+    "dev": "nodemon --exec ts-node -r tsconfig-paths/register src/app.ts",
+    "dev:api": "nodemon --exec ts-node -r tsconfig-paths/register src/app.ts --api",
+    "build": "tsc && tsc-alias"
   },
   "devDependencies": {
     "@types/bun": "latest",
     "@types/node": "^25.0.3",
     "nodemon": "^3.1.11",
-    "ts-node": "^10.9.2"
+    "ts-node": "^10.9.2",
+    "tsc-alias": "^1.8.16",
+    "tsconfig-paths": "^4.2.0"
   },
   "peerDependencies": {
     "typescript": "^5"
