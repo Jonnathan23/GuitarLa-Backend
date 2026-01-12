@@ -14,14 +14,14 @@ Backend API para la aplicación GuitarLa, construido con **Express**, **TypeScri
 
 ---
 
-## ⚙️ Requisitos Previos
+## Requisitos Previos
 
 - [Bun](https://bun.sh) v1.3.3 o superior
 - Base de datos PostgreSQL
 
 ---
 
-## 📦 Instalación
+## Instalación
 
 ```bash
 bun install
@@ -29,7 +29,7 @@ bun install
 
 ---
 
-## 🔧 Configuración
+## Configuración
 
 1. Copia el archivo `.env.template` y renómbralo a `.env`:
 
@@ -55,7 +55,7 @@ NODE_ENV=development
 
 ---
 
-## 🚀 Scripts Disponibles
+## Scripts Disponibles
 
 | Script       | Comando          | Descripción                                                              |
 | ------------ | ---------------- | ------------------------------------------------------------------------ |
@@ -100,7 +100,7 @@ bun run build
 
 ---
 
-## 🏗️ Estructura del Proyecto
+## Estructura del Proyecto
 
 El proyecto sigue una arquitectura basada en **Clean Architecture** y está organizado por **Features**:
 
@@ -147,7 +147,7 @@ src/
 
 ---
 
-## 🤝 Contribución
+## Contribución
 
 ¡Las contribuciones son bienvenidas! Este proyecto está bajo la licencia MIT, lo que significa que puedes:
 
@@ -167,7 +167,7 @@ src/
 
 ---
 
-## 📄 Licencia
+## Licencia
 
 Este proyecto está licenciado bajo la **MIT License** - consulta el archivo [LICENSE](LICENSE) para más detalles.
 
