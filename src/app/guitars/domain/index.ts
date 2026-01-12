@@ -8,9 +8,6 @@ export * from './entities/Guitar.entity';
 export * from './dtos/PatchGuitar.dto';
 export * from './dtos/UpdateGuitar.dto';
 
-// errors
-export * from './errors/errors';
-export * from './errors/handleErrors';
 
 // repositories
 export * from './repositories/guitar.repository';

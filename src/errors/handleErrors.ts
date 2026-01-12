@@ -1,4 +1,5 @@
-import { CustomError } from "..";
+import { CustomError } from "./errors";
+
 
 export const handleError = (error: unknown): never => {
 
