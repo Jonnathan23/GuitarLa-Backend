@@ -1,6 +1,8 @@
 import { GuitarMapper } from "..";
 import Guitar from "../../../../data/models/guitars/Guitar.model";
-import { CustomError, GuitarDataSource, GuitarEntity, handleError, PatchGuitarDto, UpdateGuitarDto } from "../../domain";
+import { CustomError, handleError } from "../../../../errors";
+
+import { GuitarDataSource, GuitarEntity, PatchGuitarDto, UpdateGuitarDto } from "../../domain";
 
 
 

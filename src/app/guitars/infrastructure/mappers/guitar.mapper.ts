@@ -1,4 +1,5 @@
-import { CustomError, GuitarEntity } from "../../domain";
+import { CustomError } from "../../../../errors";
+import { GuitarEntity } from "../../domain";
 
 
 export class GuitarMapper {

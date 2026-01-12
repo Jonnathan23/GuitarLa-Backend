@@ -1,5 +1,6 @@
 import HeaderInvoice from "../../../../data/models/invoices/HeaderInvoice.model";
-import { CustomError, handleError } from "../../../guitars/domain";
+import { CustomError, handleError } from "../../../../errors";
+
 import { HeaderInvoiceDataSource, HeaderInvoiceEntity, PatchHeaderInvoiceDto } from "../../domain";
 import { HeaderInvoiceMapper } from "../mapprers/headerInvoice.mapper";
 
