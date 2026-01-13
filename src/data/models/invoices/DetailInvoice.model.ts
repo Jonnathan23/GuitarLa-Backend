@@ -17,7 +17,7 @@ interface DetailInvoiceI {
     createdAt: 'det_createdAt',
     updatedAt: 'det_updatedAt'
 })
-class DetailInvoice extends Model<DetailInvoiceI> {
+class DetailInvoice extends Model {
     @Column({
         type: DataType.UUID,
         defaultValue: DataType.UUIDV4,

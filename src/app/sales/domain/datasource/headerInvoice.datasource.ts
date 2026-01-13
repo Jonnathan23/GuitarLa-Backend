@@ -1,4 +1,5 @@
-import { PatchHeaderInvoiceDto, HeaderInvoiceEntity } from "..";
+import { PatchHeaderInvoiceDto, HeaderInvoiceEntity, UpdateHeaderInvoiceDto } from "@/app/sales/domain";
+
 
 
 export abstract class HeaderInvoiceDataSource {
@@ -9,7 +10,7 @@ export abstract class HeaderInvoiceDataSource {
 
     abstract getAllHeaderInvoices(): Promise<HeaderInvoiceEntity[]>;
 
-    abstract updateHeaderInvoice(id: string, headerInvoiceDto: PatchHeaderInvoiceDto): Promise<HeaderInvoiceEntity>;
+    abstract updateHeaderInvoice(id: string, headerInvoiceDto: UpdateHeaderInvoiceDto): Promise<HeaderInvoiceEntity>;
 
     abstract deleteHeaderInvoice(id: string): Promise<void>;
 

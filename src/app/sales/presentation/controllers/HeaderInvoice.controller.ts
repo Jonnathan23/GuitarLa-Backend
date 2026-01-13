@@ -4,6 +4,7 @@ import { CustomError } from '@/errors';
 import { HeaderInvoiceRepository } from '@/app/sales/domain';
 
 export class HeaderInvoiceController {
+    
     constructor(
         private readonly headerInvoiceRepository: HeaderInvoiceRepository
     ) { }

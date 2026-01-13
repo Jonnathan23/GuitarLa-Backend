@@ -1,8 +1,7 @@
-import HeaderInvoice from "../../../../data/models/invoices/HeaderInvoice.model";
-import { CustomError, handleError } from "../../../../errors";
-
-import { HeaderInvoiceDataSource, HeaderInvoiceEntity, PatchHeaderInvoiceDto } from "../../domain";
-import { HeaderInvoiceMapper } from "../mapprers/headerInvoice.mapper";
+import HeaderInvoice from "@/data/models/invoices/HeaderInvoice.model";
+import { CustomError, handleError } from "@/errors";
+import { HeaderInvoiceDataSource, HeaderInvoiceEntity, PatchHeaderInvoiceDto, UpdateHeaderInvoiceDto } from "@/app/sales/domain";
+import { HeaderInvoiceMapper } from "@/app/sales/infrastructure/mapprers/headerInvoice.mapper";
 
 
 export class HeaderInvoiceDataSourceImpl implements HeaderInvoiceDataSource {
@@ -49,10 +48,19 @@ export class HeaderInvoiceDataSourceImpl implements HeaderInvoiceDataSource {
         }
     }
 
-    async updateHeaderInvoice(id: string, headerInvoiceDto: PatchHeaderInvoiceDto): Promise<HeaderInvoiceEntity> {
+    async updateHeaderInvoice(id: string, headerInvoiceDto: UpdateHeaderInvoiceDto): Promise<HeaderInvoiceEntity> {
         try {
             const headerInvoice = await HeaderInvoice.findByPk(id);
             if (!headerInvoice) throw new CustomError(404, "HeaderInvoice not found");
+
+            headerInvoice.inv_subTotal = headerInvoiceDto.inv_subTotal ?? headerInvoice.inv_subTotal;
+            headerInvoice.inv_total = headerInvoiceDto.inv_total ?? headerInvoice.inv_total;
+            headerInvoice.inv_client_name = headerInvoiceDto.inv_client_name ?? headerInvoice.inv_client_name;
+            headerInvoice.inv_client_email = headerInvoiceDto.inv_client_email ?? headerInvoice.inv_client_email;
+            headerInvoice.inv_client_phone = headerInvoiceDto.inv_client_phone ?? headerInvoice.inv_client_phone;
+            headerInvoice.inv_quantity_items = headerInvoiceDto.inv_quantity_items ?? headerInvoice.inv_quantity_items;
+
+            await headerInvoice.save();
 
             const headerInvoiceEntity = HeaderInvoiceMapper.toEntity(headerInvoice);
 

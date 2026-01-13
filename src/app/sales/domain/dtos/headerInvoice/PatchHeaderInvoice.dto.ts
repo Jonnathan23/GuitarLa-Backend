@@ -6,8 +6,7 @@ export class PatchHeaderInvoiceDto {
         public inv_client_name: string,
         public inv_client_email: string,
         public inv_client_phone: string,
-        public inv_quantity_items: number,
-
+        public inv_quantity_items: number
     ) { }
 
     static create(object: { [key: string]: any }): [string?, PatchHeaderInvoiceDto?] {

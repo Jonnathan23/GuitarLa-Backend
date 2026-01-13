@@ -1,4 +1,4 @@
-import { HeaderInvoiceDataSource, HeaderInvoiceEntity, HeaderInvoiceRepository, PatchHeaderInvoiceDto } from "../../domain";
+import { HeaderInvoiceDataSource, HeaderInvoiceEntity, HeaderInvoiceRepository, PatchHeaderInvoiceDto, UpdateHeaderInvoiceDto } from "@/app/sales/domain";
 
 
 export class HeaderInvoiceRepositoryImpl implements HeaderInvoiceRepository {
@@ -19,7 +19,7 @@ export class HeaderInvoiceRepositoryImpl implements HeaderInvoiceRepository {
         return this.headerInvoiceDataSource.getAllHeaderInvoices();
     }
 
-    async updateHeaderInvoice(id: string, headerInvoiceDto: PatchHeaderInvoiceDto): Promise<HeaderInvoiceEntity> {
+    async updateHeaderInvoice(id: string, headerInvoiceDto: UpdateHeaderInvoiceDto): Promise<HeaderInvoiceEntity> {
         return this.headerInvoiceDataSource.updateHeaderInvoice(id, headerInvoiceDto);
     }
 

@@ -14,6 +14,4 @@ export class HeaderInvoiceEntity {
         public inv_quantity_items: number,
 
     ) { }
-
-
 }

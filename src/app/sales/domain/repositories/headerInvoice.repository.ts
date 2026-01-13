@@ -1,4 +1,4 @@
-import { HeaderInvoiceEntity, PatchHeaderInvoiceDto } from "..";
+import { HeaderInvoiceEntity, PatchHeaderInvoiceDto, UpdateHeaderInvoiceDto } from "..";
 
 export abstract class HeaderInvoiceRepository {
     
@@ -8,7 +8,7 @@ export abstract class HeaderInvoiceRepository {
 
     abstract getAllHeaderInvoices(): Promise<HeaderInvoiceEntity[]>;
 
-    abstract updateHeaderInvoice(id: string, headerInvoiceDto: PatchHeaderInvoiceDto): Promise<HeaderInvoiceEntity>;
+    abstract updateHeaderInvoice(id: string, headerInvoiceDto: UpdateHeaderInvoiceDto): Promise<HeaderInvoiceEntity>;
 
     abstract deleteHeaderInvoice(id: string): Promise<void>;
 }
