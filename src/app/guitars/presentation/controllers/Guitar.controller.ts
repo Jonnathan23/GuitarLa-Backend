@@ -55,10 +55,10 @@ export class GuitarController {
         try {
             const id = req.params.id;
             await this.guitarRepository.deleteGuitar(id);
-            return res.status(204).json({ message: "Guitar deleted successfully" });
+            console.log("Guitar deleted successfully");
+            return res.status(200).json({ message: "Guitar deleted successfully" });
         } catch (error) {
             this.handleError(error, res);
         }
     }
-
 }

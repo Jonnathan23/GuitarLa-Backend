@@ -41,7 +41,7 @@ export class GuitarPostgresDataSource implements GuitarDataSource {
         try {
             const guitar = await Guitar.findByPk(id);
             if (!guitar) throw new CustomError(404, "Guitar not found");
-            
+
             return GuitarMapper.toEntity(guitar);
         } catch (error) {
             console.log(error);
@@ -71,9 +71,7 @@ export class GuitarPostgresDataSource implements GuitarDataSource {
     async deleteGuitar(id: string): Promise<void> {
         try {
             const guitar = await Guitar.findByPk(id);
-            if (!guitar) {
-                throw new Error("Guitar not found");
-            }
+            if (!guitar) throw new CustomError(404, "Guitar not found");
 
             await guitar.destroy();
         } catch (error) {

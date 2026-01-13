@@ -10,21 +10,21 @@ export class GuitarRoutes {
         const guitarRepository = new GuitarRepositoryImpl(guitarDataSource);
         const guitarController = new GuitarController(guitarRepository);
 
-        router.use('/guitars', guitarController.createGuitar)
+        router.post('/guitars', guitarController.createGuitar)
 
-        router.use('/guitars', guitarController.getAllGuitars)
+        router.get('/guitars', guitarController.getAllGuitars)
 
-        router.use('/guitars/:id',
+        router.get('/guitars/:id',
             validateGuitarId,
             guitarController.getGuitarById
         )
 
-        router.use('/guitars/:id',
+        router.put('/guitars/:id',
             validateGuitarId,
             guitarController.updateGuitar
         )
 
-        router.use('/guitars/:id',
+        router.delete('/guitars/:id',
             validateGuitarId,
             guitarController.deleteGuitar
         )
