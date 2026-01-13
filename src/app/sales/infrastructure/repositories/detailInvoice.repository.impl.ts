@@ -1,4 +1,4 @@
-import { PatchDetailInvoiceDto, DetailInvoiceEntity, UpdateDetailInvoiceDto, DetailInvoiceRepository, DetailInvoiceDataSource } from "@/app/sales/domain";
+import { PatchDetailInvoiceDto, DetailInvoiceEntity, UpdateDetailInvoiceDto, DetailInvoiceRepository, DetailInvoiceDataSource, detailsFK } from "@/app/sales/domain";
 
 
 
@@ -7,8 +7,8 @@ export class DetailInvoiceRepositoryImpl implements DetailInvoiceRepository {
         private detailInvoiceDataSource: DetailInvoiceDataSource
     ) { }
 
-    createDetailInvoice(detailInvoiceDto: PatchDetailInvoiceDto): Promise<DetailInvoiceEntity> {
-        return this.detailInvoiceDataSource.createDetailInvoice(detailInvoiceDto);
+    createDetailInvoice(detailInvoiceDto: PatchDetailInvoiceDto, foreingKeys: detailsFK): Promise<DetailInvoiceEntity> {
+        return this.detailInvoiceDataSource.createDetailInvoice(detailInvoiceDto, foreingKeys);
     }
 
     getDetailInvoiceById(id: string): Promise<DetailInvoiceEntity> {
@@ -19,8 +19,8 @@ export class DetailInvoiceRepositoryImpl implements DetailInvoiceRepository {
         return this.detailInvoiceDataSource.getAllDetailInvoices();
     }
 
-    updateDetailInvoice(id: string, detailInvoiceDto: UpdateDetailInvoiceDto): Promise<DetailInvoiceEntity> {
-        return this.detailInvoiceDataSource.updateDetailInvoice(id, detailInvoiceDto);
+    updateDetailInvoice(id: string, detailInvoiceDto: UpdateDetailInvoiceDto, foreingKeys: detailsFK): Promise<DetailInvoiceEntity> {
+        return this.detailInvoiceDataSource.updateDetailInvoice(id, detailInvoiceDto, foreingKeys);
     }
     
     deleteDetailInvoice(id: string): Promise<void> {
