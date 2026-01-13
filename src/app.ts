@@ -20,7 +20,7 @@ async function main() {
 
     const db = new DatabaseConnection({
         ulrDatabase: envs.DATABASE_URL,
-        logging: envs.DEVELOPMENT ? true : false
+        logging: false// envs.DEVELOPMENT ? true : false
     })
 
     await db.connect()

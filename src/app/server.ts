@@ -1,5 +1,6 @@
 import express, { Router } from 'express';
 import cors from 'cors';
+import morgan from 'morgan';
 
 import { ColorsAdapter } from '@/utils/colors';
 import { CorsConfig } from '@/config';
@@ -24,6 +25,7 @@ export class Server {
 
     async start() {
         //Middlewares
+        this.app.use(morgan('dev'))
         this.app.use(express.json())
         this.app.use(express.urlencoded({ extended: true })) //x-www-form-urlencoded
 
