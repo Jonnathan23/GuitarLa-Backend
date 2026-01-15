@@ -44,17 +44,6 @@ class DetailInvoice extends Model {
     })
     declare det_subTotal: number;
 
-    @Column({
-        type: DataType.STRING,
-        allowNull: false
-    })
-    declare det_createdAt: string;
-
-    @Column({
-        type: DataType.STRING,
-        allowNull: false
-    })
-    declare det_updatedAt: string;
 
     //* |------| | ForeignKey | |------|
     @ForeignKey(() => HeaderInvoice)

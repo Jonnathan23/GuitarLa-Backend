@@ -6,9 +6,8 @@ import { DetailInvoiceMapper } from "../mapprers/detailInvoice.mapper";
 export class DetailInvoiceDataSourceImpl implements DetailInvoiceDataSource {
 
 
-    async createDetailInvoice(detailInvoiceDto: PatchDetailInvoiceDto, foreingKeys: detailsFK): Promise<DetailInvoiceEntity> {
-        const { det_price, det_quantity, det_subTotal } = detailInvoiceDto;
-        const { det_inv_id, det_guitar_id } = foreingKeys;
+    async createDetailInvoice(detailInvoiceDto: PatchDetailInvoiceDto): Promise<DetailInvoiceEntity> {
+        const { det_price, det_quantity, det_subTotal, det_inv_id, det_guitar_id } = detailInvoiceDto;
         try {
             const newDetailInvoice = await DetailInvoice.create({ det_price, det_quantity, det_subTotal, det_inv_id, det_guitar_id });
             const detailInvoiceEntity = DetailInvoiceMapper.toEntity(newDetailInvoice);
@@ -47,17 +46,16 @@ export class DetailInvoiceDataSourceImpl implements DetailInvoiceDataSource {
         }
     }
 
-    async updateDetailInvoice(id: string, detailInvoiceDto: UpdateDetailInvoiceDto, foreingKeys: detailsFK): Promise<DetailInvoiceEntity> {
+    async updateDetailInvoice(id: string, detailInvoiceDto: UpdateDetailInvoiceDto): Promise<DetailInvoiceEntity> {
         try {
             const detailInvoice = await DetailInvoice.findByPk(id);
-            const { det_inv_id, det_guitar_id } = foreingKeys;
             if (!detailInvoice) throw new CustomError(404, "DetailInvoice not found");
 
             detailInvoice.det_price = detailInvoiceDto.det_price ?? detailInvoice.det_price;
             detailInvoice.det_quantity = detailInvoiceDto.det_quantity ?? detailInvoice.det_quantity;
             detailInvoice.det_subTotal = detailInvoiceDto.det_subTotal ?? detailInvoice.det_subTotal;
-            detailInvoice.det_inv_id = det_inv_id;
-            detailInvoice.det_guitar_id = det_guitar_id;
+            detailInvoice.det_inv_id = detailInvoiceDto.det_inv_id ?? detailInvoice.det_inv_id;
+            detailInvoice.det_guitar_id = detailInvoiceDto.det_guitar_id ?? detailInvoice.det_guitar_id;
 
             await detailInvoice.save();
 

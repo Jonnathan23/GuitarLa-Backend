@@ -4,13 +4,13 @@ import { DetailInvoiceEntity, detailsFK, PatchDetailInvoiceDto, UpdateDetailInvo
 
 export abstract class DetailInvoiceRepository {
     
-    abstract createDetailInvoice(detailInvoiceDto: PatchDetailInvoiceDto, foreingKeys: detailsFK): Promise<DetailInvoiceEntity>;
+    abstract createDetailInvoice(detailInvoiceDto: PatchDetailInvoiceDto): Promise<DetailInvoiceEntity>;
 
     abstract getDetailInvoiceById(id: string): Promise<DetailInvoiceEntity>;
 
-    abstract getAllDetailInvoices(): Promise<DetailInvoiceEntity[]>;
+    abstract getAllDetailInvoices(det_inv_id: detailsFK['det_inv_id']): Promise<DetailInvoiceEntity[]>;
 
-    abstract updateDetailInvoice(id: string, detailInvoiceDto: UpdateDetailInvoiceDto, foreingKeys: detailsFK): Promise<DetailInvoiceEntity>;
+    abstract updateDetailInvoice(id: string, detailInvoiceDto: UpdateDetailInvoiceDto): Promise<DetailInvoiceEntity>;
 
     abstract deleteDetailInvoice(id: string): Promise<void>;
 

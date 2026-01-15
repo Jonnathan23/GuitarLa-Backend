@@ -30,7 +30,8 @@ export class GuitarPostgresDataSource implements GuitarDataSource {
     async getAllGuitars(): Promise<GuitarEntity[]> {
         try {
             const guitars = await Guitar.findAll();
-            return guitars.map(guitar => GuitarMapper.toEntity(guitar));
+            const guitarsEntities = guitars.map(guitar => GuitarMapper.toEntity(guitar));
+            return guitarsEntities;
         } catch (error) {
             console.log(error);
             throw handleError(error);

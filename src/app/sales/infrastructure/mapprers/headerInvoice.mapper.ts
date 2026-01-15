@@ -38,5 +38,4 @@ export class HeaderInvoiceMapper {
             inv_quantity_items
         )
     }
-
 }

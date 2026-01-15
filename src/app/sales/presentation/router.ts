@@ -37,18 +37,18 @@ export class SalesRouter {
         const detailInvoiceController = new DetailInvoiceController(detailInvoiceRepository);
 
         // Posts
-        router.post('/detail-invoice', detailInvoiceController.createDetailInvoice);
+        router.post('/detail-invoice/invoice/:det_inv_id/guitar/:det_guitar_id', detailInvoiceController.createDetailInvoice);
 
         // Gets
-        router.get('/detail-invoice', detailInvoiceController.getAllDetailInvoices);
+        router.get('/detail-invoice/invoice/:det_inv_id', detailInvoiceController.getAllDetailInvoices);
 
-        router.get('/detail-invoice/:id', detailInvoiceController.getDetailInvoiceById);
+        router.get('/detail-invoice/invoice/:det_inv_id', detailInvoiceController.getDetailInvoiceById);
 
         // Patches
-        router.patch('/detail-invoice/:id', detailInvoiceController.updateDetailInvoice);
+        router.patch('/detail-invoice/invoice/:det_inv_id/guitar/:det_guitar_id', detailInvoiceController.updateDetailInvoice);
 
         // Deletes
-        router.delete('/detail-invoice/:id', detailInvoiceController.deleteDetailInvoice);
+        router.delete('/detail-invoice/invoice/:det_inv_id/guitar/:det_guitar_id', detailInvoiceController.deleteDetailInvoice);
 
         return router;
     }
