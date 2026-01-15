@@ -1,7 +1,11 @@
 
 export class HeaderInvoiceEntity {
+
+    public inv_createdAt?: string;
+    public inv_updatedAt?: string;
+
     constructor(
-        public atributes: {
+        attributes: {
             inv_createdAt: string
             inv_updatedAt: string
         },
@@ -13,5 +17,9 @@ export class HeaderInvoiceEntity {
         public inv_client_phone: string,
         public inv_quantity_items: number,
 
-    ) { }
+    ) {
+        this.inv_createdAt = attributes.inv_createdAt;
+        this.inv_updatedAt = attributes.inv_updatedAt;
+    }
+
 }
