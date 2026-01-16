@@ -1,14 +1,13 @@
 import { Response, Request } from 'express';
 
 import { CustomError } from '@/errors';
-import { HeaderInvoiceRepository } from '@/app/sales/domain';
+import { HeaderInvoiceRepository, PatchHeaderInvoiceDto, UpdateHeaderInvoiceDto } from '@/app/sales/domain';
 
 export class HeaderInvoiceController {
     
     constructor(
         private readonly headerInvoiceRepository: HeaderInvoiceRepository
     ) { }
-
     private handleError = (error: unknown, res: Response) => {
         if (error instanceof CustomError) {
             return res.status(error.statusCode).json({ message: error.message });
@@ -17,7 +16,12 @@ export class HeaderInvoiceController {
 
     public createHeaderInvoice = async (req: Request, res: Response) => {
         try {
-            await this.headerInvoiceRepository.createHeaderInvoice(req.body);
+            const [error, headerInvoiceDto] = PatchHeaderInvoiceDto.create(req.body)
+            if (error) {
+                return res.status(400).json({ message: error });
+            }
+            
+            await this.headerInvoiceRepository.createHeaderInvoice(headerInvoiceDto!);
             return res.status(201).json({ message: "HeaderInvoice created successfully" });
         } catch (error) {
             this.handleError(error, res);
@@ -45,8 +49,12 @@ export class HeaderInvoiceController {
 
     public updateHeaderInvoice = async (req: Request, res: Response) => {
         try {
+            const [error, headerInvoiceDto] = UpdateHeaderInvoiceDto.create(req.body)
+            if (error) {
+                return res.status(400).json({ message: error });
+            }
             const id = req.params.id;
-            await this.headerInvoiceRepository.updateHeaderInvoice(id, req.body);
+            await this.headerInvoiceRepository.updateHeaderInvoice(id, headerInvoiceDto!);
             return res.status(200).json({ message: "HeaderInvoice updated successfully" });
         } catch (error) {
             this.handleError(error, res);

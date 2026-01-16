@@ -1,5 +1,5 @@
 import { CustomError } from '@/errors';
-import { GuitarRepository } from '@/app/guitars/domain';
+import { GuitarRepository, PatchGuitarDto, UpdateGuitarDto } from '@/app/guitars/domain';
 import { Response, Request } from "express";
 
 export class GuitarController {
@@ -15,7 +15,12 @@ export class GuitarController {
 
     public createGuitar = async (req: Request, res: Response) => {
         try {
-            await this.guitarRepository.createGuitar(req.body);
+            const [error, guitarDto] = PatchGuitarDto.create(req.body)
+            if (error) {
+                return res.status(400).json({ message: error });
+            }
+
+            await this.guitarRepository.createGuitar(guitarDto!);
             return res.status(201).json({ message: "Guitar created successfully" });
         } catch (error) {
             this.handleError(error, res);
@@ -43,8 +48,12 @@ export class GuitarController {
 
     public updateGuitar = async (req: Request, res: Response) => {
         try {
+            const [error, guitarDto] = UpdateGuitarDto.create(req.body)
+            if (error) {
+                return res.status(400).json({ message: error });
+            }
             const id = req.params.id;
-            await this.guitarRepository.updateGuitar(id, req.body);
+            await this.guitarRepository.updateGuitar(id, guitarDto!);
             return res.status(200).json({ message: "Guitar updated successfully" });
         } catch (error) {
             this.handleError(error, res);
